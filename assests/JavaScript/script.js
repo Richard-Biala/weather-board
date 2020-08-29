@@ -37,7 +37,7 @@ $(document).ready(function () {
             const name = response.name;
             const wind = response.wind.speed;
             const humidity = response.main.humidity;
-            const temperature = response.main.temp;
+            const temperature = response.main.temp + ' F';
             const img = `https://openweathermap.org/img/w/${response.weather[0].icon}.png`;
 
             console.log(name, wind, humidity, temperature, img);
@@ -142,7 +142,7 @@ $(document).ready(function () {
                 //extract data from current element we are on.
                 const titleEL = $("<h5>").addClass("card-title").text(new Date(response.list[i].dt_txt).toLocaleDateString());
                 const imgEl = $("<img>").attr("src", `https://openweathermap.org/img/w/${response.list[i].weather[0].icon}.png`);
-                const tempEl = $("<p>").addClass("card-text").text(`Temp: ${response.list[i].main.temp_max}`);
+                const tempEl = $("<p>").addClass("card-text").text(`Temp: ${response.list[i].main.temp_max}` + ' F');
                 const humidEl = $("<p>").addClass("card-text").text(`Humidity: ${response.list[i].main.humidity}`);
 
                 //append all data to cardEl
